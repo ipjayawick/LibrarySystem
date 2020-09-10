@@ -1,0 +1,21 @@
+
+CREATE DATABASE library;
+
+CREATE TABLE BOOKS(
+	id VARCHAR(20) PRIMARY KEY,
+    	title VARCHAR(25),
+	author VARCHAR(20),
+	publisher VARCHAR(20),
+	availability VARCHAR(10)
+);
+	
+CREATE TABLE MEMBERS(
+	id VARCHAR(20)  PRIMARY KEY,
+	name VARCHAR(20),
+	mobile VARCHAR(10),
+	email VARCHAR(20)
+);
+
+insert into books values('jfkadfsj','dfkjskal','djkf','fdsaf','asdfasf');
+insert into members values('jfkadfsj','dfkjskal','djkf','fdsaf');
+	
