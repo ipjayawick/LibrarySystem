@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lk.ijse.libraryManagementSystem.dao.DatabaseAccessCode;
@@ -14,11 +15,11 @@ import lk.ijse.libraryManagementSystem.dto.MemberDTO;
 import java.io.IOException;
 
 public class AddMemberFormController {
-    public VBox root;
     public JFXTextField txtMemberID;
     public JFXTextField txtName;
     public JFXTextField txtMobileNum;
     public JFXTextField txtEmail;
+    public AnchorPane root;
 
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
         Stage window = (Stage) this.root.getScene().getWindow();

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -19,7 +20,7 @@ public class AddBookFormController {
     public JFXTextField txtAuthor;
     public JFXTextField txtPublisher;
     public JFXTextField txtBkInternalCode;
-    public VBox root;
+    public AnchorPane root;
 
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
         Stage window = (Stage) this.root.getScene().getWindow();
