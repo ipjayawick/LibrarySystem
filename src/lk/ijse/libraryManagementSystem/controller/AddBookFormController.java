@@ -13,6 +13,7 @@ import lk.ijse.libraryManagementSystem.dao.DatabaseAccessCode;
 import lk.ijse.libraryManagementSystem.dto.BookDTO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AddBookFormController {
     public JFXTextField txtBkID;
@@ -29,7 +30,7 @@ public class AddBookFormController {
         window.show();
     }
 
-    public void saveOnAction(ActionEvent actionEvent) {
+    public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         boolean isAdded = new DatabaseAccessCode().saveBook(new BookDTO(txtBkID.getText(), txtBkTitle.getText(), txtAuthor.getText(), txtPublisher.getText(), txtBkInternalCode.getText()));
 
         Alert alert;

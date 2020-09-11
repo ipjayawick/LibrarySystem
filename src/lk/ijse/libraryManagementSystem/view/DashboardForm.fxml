@@ -129,7 +129,7 @@
                                  <children>
                                     <HBox fx:id="hbx1" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #78909c;" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <JFXTextField fx:id="txtIssueBkID" alignment="BOTTOM_LEFT" focusColor="#0080bc" labelFloat="true" prefHeight="35.0" prefWidth="300.0" promptText="Enter Book ID" unFocusColor="BLACK" HBox.hgrow="ALWAYS">
+                                          <JFXTextField fx:id="txtIssueBkID" alignment="BOTTOM_LEFT" focusColor="#0080bc" labelFloat="true" onAction="#showBookOnAction" prefHeight="35.0" prefWidth="300.0" promptText="Enter Book ID" unFocusColor="BLACK" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -139,7 +139,7 @@
                                           </JFXTextField>
                                           <VBox alignment="CENTER_LEFT" prefHeight="94.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Label prefHeight="30.0" prefWidth="160.0" text="Book Name :" VBox.vgrow="ALWAYS">
+                                                <Label fx:id="lblBookName" prefHeight="30.0" prefWidth="300.0" text="Book Name : " VBox.vgrow="ALWAYS">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
@@ -147,7 +147,7 @@
                                                       <Insets />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label layoutX="42.0" layoutY="45.0" prefHeight="30.0" prefWidth="160.0" text="Author        :  " VBox.vgrow="ALWAYS">
+                                                <Label fx:id="lblBookAuthor" layoutX="42.0" layoutY="45.0" prefHeight="30.0" prefWidth="300.0" text="Author        : " VBox.vgrow="ALWAYS">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
@@ -167,7 +167,7 @@
                                     </HBox>
                                     <HBox fx:id="hbx2" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #78909c;" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <JFXTextField fx:id="txtIssueMemID" alignment="BOTTOM_LEFT" focusColor="#0080bc" labelFloat="true" prefHeight="35.0" prefWidth="300.0" promptText="Enter Member ID" unFocusColor="BLACK" HBox.hgrow="ALWAYS">
+                                          <JFXTextField fx:id="txtIssueMemID" alignment="BOTTOM_LEFT" focusColor="#0080bc" labelFloat="true" onAction="#showMemberOnAction" prefHeight="35.0" prefWidth="300.0" promptText="Enter Member ID" unFocusColor="BLACK" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -175,14 +175,14 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </JFXTextField>
-                                          <VBox prefHeight="94.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
+                                          <VBox alignment="CENTER_LEFT" prefHeight="94.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Label prefHeight="30.0" prefWidth="160.0" text="Member Name   :" VBox.vgrow="ALWAYS">
+                                                <Label fx:id="lblMemberName" prefHeight="30.0" prefWidth="300.0" text="Member Name   : " VBox.vgrow="ALWAYS">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="30.0" prefWidth="160.0" text="Contact Number :  " VBox.vgrow="ALWAYS">
+                                                <Label fx:id="lblConNum" prefHeight="30.0" prefWidth="300.0" text="Contact Number : " VBox.vgrow="ALWAYS">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>

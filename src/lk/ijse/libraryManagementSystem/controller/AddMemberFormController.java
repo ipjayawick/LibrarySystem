@@ -13,6 +13,7 @@ import lk.ijse.libraryManagementSystem.dto.BookDTO;
 import lk.ijse.libraryManagementSystem.dto.MemberDTO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AddMemberFormController {
     public JFXTextField txtMemberID;
@@ -28,7 +29,7 @@ public class AddMemberFormController {
         window.show();
     }
 
-    public void saveOnAction(ActionEvent actionEvent) {
+    public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         boolean isAdded = new DatabaseAccessCode().saveMember(new MemberDTO(txtMemberID.getText(), txtName.getText(), txtMobileNum.getText(), txtEmail.getText()));
 
         Alert alert;
