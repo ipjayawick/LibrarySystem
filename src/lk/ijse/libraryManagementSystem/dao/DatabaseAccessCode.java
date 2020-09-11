@@ -71,4 +71,26 @@ public class DatabaseAccessCode {
             return null;
         }
     }
+
+    public boolean issueBook(String bookID, String memberID) throws SQLException, ClassNotFoundException {
+        PreparedStatement pst = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO ISSUES VALUES(?,?,?,?) ");
+        String issueID=getNextIssueID();
+
+        pst.setString(1,issueID);
+        pst.setString(2,bookID);
+        pst.setString(3,memberID);
+        pst.setInt(4,1);
+        System.out.println(pst);
+        int result = pst.executeUpdate();
+        return result>0;
+    }
+
+    private String getNextIssueID() throws SQLException, ClassNotFoundException {
+        ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT issueID FROM ISSUES ORDER BY issueID DESC LIMIT 1 ");
+        if(rst.next()){
+            return rst.getString(1)+1;
+        }else{
+            return "1";
+        }
+    }
 }

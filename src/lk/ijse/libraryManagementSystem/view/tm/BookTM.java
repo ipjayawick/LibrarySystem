@@ -5,6 +5,7 @@ public class BookTM {
     private String bookTitle;
     private String author;
     private String publisher;
+    private String bookIntCode;
 
     public BookTM() {
     }
@@ -17,7 +18,6 @@ public class BookTM {
         this.bookIntCode = bookIntCode;
     }
 
-    private String bookIntCode;
 
     public String getBookID() {
         return bookID;

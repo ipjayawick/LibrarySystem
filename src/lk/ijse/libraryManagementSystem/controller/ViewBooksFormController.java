@@ -25,7 +25,7 @@ public class ViewBooksFormController {
     public TableColumn colTtle;
     public TableColumn colAthr;
     public TableColumn colPblshr;
-    public TableColumn colAvlbty;
+    public TableColumn colBkIntCode;
     public TableView<BookTM> tbl;
     public AnchorPane root;
 
@@ -35,7 +35,7 @@ public class ViewBooksFormController {
         colTtle.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
         colAthr.setCellValueFactory(new PropertyValueFactory<>("author"));
         colPblshr.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-        colAvlbty.setCellValueFactory(new PropertyValueFactory<>("bookIntCode"));
+        colBkIntCode.setCellValueFactory(new PropertyValueFactory<>("bookIntCode"));
         loadAllItems();
     }
 
@@ -51,6 +51,7 @@ public class ViewBooksFormController {
     public void backOnAction(ActionEvent actionEvent) throws IOException {
         Stage window = (Stage) this.root.getScene().getWindow();
         window.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("../view/DashboardForm.fxml"))));
+        window.setTitle("Library System");
         window.centerOnScreen();
         window.show();
     }

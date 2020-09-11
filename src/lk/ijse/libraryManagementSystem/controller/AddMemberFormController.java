@@ -25,6 +25,7 @@ public class AddMemberFormController {
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
         Stage window = (Stage) this.root.getScene().getWindow();
         window.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("../view/DashboardForm.fxml"))));
+        window.setTitle("Library System");
         window.centerOnScreen();
         window.show();
     }

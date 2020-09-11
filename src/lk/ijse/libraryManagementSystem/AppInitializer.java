@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class AppInitializer extends Application {
@@ -14,6 +15,7 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Library System");
         primaryStage.setScene(new Scene(root,1200,700));
         primaryStage.centerOnScreen();
+        primaryStage.getIcons().add(new Image("lk/ijse/libraryManagementSystem/asserts/library.png"));
         primaryStage.show();
     }
 
