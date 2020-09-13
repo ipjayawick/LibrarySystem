@@ -11,7 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import lk.ijse.libraryManagementSystem.dao.DatabaseAccessCode;
+
+import lk.ijse.libraryManagementSystem.bo.Custom.impl.BookBOImpl;
+import lk.ijse.libraryManagementSystem.bo.Custom.impl.MemberBOImpl;
 import lk.ijse.libraryManagementSystem.dto.BookDTO;
 import lk.ijse.libraryManagementSystem.dto.MemberDTO;
 
@@ -55,7 +57,7 @@ public class DashboardFormController {
     }
 
     public void showMemberOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        MemberDTO member = new DatabaseAccessCode().getMember(txtIssueMemID.getText());
+        MemberDTO member = new MemberBOImpl().get(txtIssueMemID.getText());
         if(member!=null){
             lblMemberName.setText(lblBookName.getText()+member.getName());
             lblConNum.setText(lblConNum.getText()+member.getNumber());
@@ -63,7 +65,7 @@ public class DashboardFormController {
     }
 
     public void showBookOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        BookDTO book = new DatabaseAccessCode().getBook(txtIssueBkID.getText());
+        BookDTO book = new BookBOImpl().get(txtIssueBkID.getText());
         if(book!=null){
             lblBookName.setText(lblBookName.getText()+book.getBookTitle());
             lblBookAuthor.setText(lblBookAuthor.getText()+book.getAuthor());
@@ -72,12 +74,12 @@ public class DashboardFormController {
 
 
     public void issueOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        boolean isDone = new DatabaseAccessCode().issueBook(txtIssueBkID.getText(), txtIssueMemID.getText());
+/*        boolean isDone = new DatabaseAccessCode().issueBook(txtIssueBkID.getText(), txtIssueMemID.getText());
         if(isDone){
             new Alert(Alert.AlertType.INFORMATION,"Book issued").show();
         }else {
             new Alert(Alert.AlertType.INFORMATION, "Failed").show();
-        }
+        }*/
     }
 
     public void renewOnAction(ActionEvent actionEvent) {

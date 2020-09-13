@@ -10,7 +10,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.libraryManagementSystem.dao.DatabaseAccessCode;
+import lk.ijse.libraryManagementSystem.bo.BOFactory;
+import lk.ijse.libraryManagementSystem.bo.Custom.MemberBO;
+import lk.ijse.libraryManagementSystem.bo.Custom.impl.MemberBOImpl;
 import lk.ijse.libraryManagementSystem.dto.BookDTO;
 import lk.ijse.libraryManagementSystem.dto.MemberDTO;
 import lk.ijse.libraryManagementSystem.view.tm.BookTM;
@@ -28,6 +30,8 @@ public class ViewMembersFormController {
     public TableView<MemberTM> tbl;
     public AnchorPane root;
 
+    MemberBO bo= BOFactory.getInstance().getBO(BOFactory.BOType.MEMBER);
+
     public void initialize() throws SQLException, ClassNotFoundException {
         colMemId.setCellValueFactory(new PropertyValueFactory<>("memberID"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -38,7 +42,7 @@ public class ViewMembersFormController {
 
     private void loadAllItems() throws SQLException, ClassNotFoundException {
         ObservableList<MemberTM> memberList = FXCollections.observableArrayList();
-        ArrayList<MemberDTO> members = new DatabaseAccessCode().getAllMembers();
+        ArrayList<MemberDTO> members = bo.getAll();
         for (MemberDTO member:members) {
              memberList.add(new MemberTM(member.getMemberID(),member.getName(),member.getNumber(),member.getEmail()));
         }

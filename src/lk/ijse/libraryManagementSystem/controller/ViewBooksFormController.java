@@ -11,7 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.libraryManagementSystem.dao.DatabaseAccessCode;
+import lk.ijse.libraryManagementSystem.bo.BOFactory;
+import lk.ijse.libraryManagementSystem.bo.Custom.BookBO;
+import lk.ijse.libraryManagementSystem.bo.Custom.impl.BookBOImpl;
 import lk.ijse.libraryManagementSystem.dto.BookDTO;
 import lk.ijse.libraryManagementSystem.view.tm.BookTM;
 
@@ -29,6 +31,7 @@ public class ViewBooksFormController {
     public TableView<BookTM> tbl;
     public AnchorPane root;
 
+    BookBO bo= BOFactory.getInstance().getBO(BOFactory.BOType.BOOK);
 
     public void initialize() throws SQLException, ClassNotFoundException {
         colBkId.setCellValueFactory(new PropertyValueFactory<>("bookID"));
@@ -41,7 +44,7 @@ public class ViewBooksFormController {
 
     private void loadAllItems() throws SQLException, ClassNotFoundException {
         ObservableList<BookTM> bookList = FXCollections.observableArrayList();
-        ArrayList<BookDTO> books = new DatabaseAccessCode().getAllBooks();
+        ArrayList<BookDTO> books = bo.getAll();
         for (BookDTO book: books) {
             bookList.add(new BookTM(book.getBookID(),book.getBookTitle(),book.getAuthor(),book.getPublisher(),book.getBookIntCode()));
         }
